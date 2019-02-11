@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "taobaoBuyerShow",
+  "version": "2.0.0",
+  "description": "淘宝买家秀",
+  "icons": {
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
+  },
+  "omnibox": {
+    "keyword": "taobao"
+  },
+  "background": {
+    "scripts": [
+      "chrome/main.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["js/main.js"]
+    }
+  ],
+  "devtools_page": "chrome/devtools.html"
+}
