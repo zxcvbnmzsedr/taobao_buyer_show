@@ -23,6 +23,7 @@ function getUrlParam(name) {
 }
 
 $(document).ready(function () {
+
     var callback = function (data, id, currtPage) {
         var _type = typeof (data);
         if (_type !== 'string') {
@@ -124,11 +125,8 @@ $(document).ready(function () {
         var html = [];
 
         html.push('<div class="imgBox">');
-        html.push('<a href="' + src.slice(0, -12) + '"class="fancybox" title="' + content + '">');
+        html.push('<a rel="image-group" href="' + src.slice(0, -12) + '" class="fancybox" title="' + content + '">');
         html.push('<div class="img"><img src="' + src + '" alt="' + content.substr(0, 70) + '"></div>');
-        html.push('</a>');
-
-        html.push('<a href="' + src.slice(0, -12) + '"class="fancybox">');
         html.push('<p>' + content + '</p>');
         html.push('</a>');
         html.push('</div>');
@@ -201,12 +199,11 @@ $(document).ready(function () {
     api_hot(__API[0]);
 
     /* This is basic - uses default settings */
+
     $("a.fancybox").fancybox({
-        padding: 0,
-        beforeLoad: function () {
-            this.title = $(this.element).find('img').attr('alt');
-        }
+        padding: 0
     });
+
 
     //当内容滚动到底部时加载新的内容
     setTimeout(function () {
